@@ -6,11 +6,13 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:28:21 by 0xNino            #+#    #+#             */
-/*   Updated: 2021/11/24 13:43:40 by 0xNino           ###   ########.fr       */
+/*   Updated: 2021/11/25 17:57:07 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
+
 char	*get_next_line(int fd)
 {
-	return (0);
+	char		*line;
 }
