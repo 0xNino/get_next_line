@@ -6,14 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:28:16 by 0xNino            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/11/24 15:07:01 by 0xNino           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "get_next_line.h"
-=======
-/*   Updated: 2021/11/25 17:56:41 by 0xNino           ###   ########.fr       */
+/*   Updated: 2021/11/29 19:58:27 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +63,49 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	return (dst_len + src_len);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *reminder, char *buf)
 {
 	char	*s3;
 	size_t	dstsize;
 
 	s3 = NULL;
-	if (s1 && s2)
+//	printf("reminder in join = (%s)\n", reminder);
+//	printf("buf in join = (%s)\n", buf);
+	if (!reminder)
 	{
-		dstsize = ft_strlen(s1) + ft_strlen(s2) + 1;
+		reminder = (char *)malloc(sizeof(char));
+		reminder[0] = '\0';
+	}
+	if (reminder && buf)
+	{
+		dstsize = ft_strlen(reminder) + ft_strlen(buf) + 1;
 		s3 = (char *)malloc(sizeof(char) * dstsize);
 		if (!s3)
 			return (NULL);
-		ft_strlcpy(s3, s1, dstsize);
-		ft_strlcat(s3, s2, dstsize);
+//		printf("test\n");
+		ft_strlcpy(s3, reminder, dstsize);
+		ft_strlcat(s3, buf, dstsize);
 	}
+//	printf("test2\n");
 	return (s3);
 }
->>>>>>> 48a030130ebbce6405bf9859ead9fde56b8c5ff8
+
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+//	printf("start ft_strchr\n");
+	if (!s)
+		return (NULL);
+	if (!c)
+		return ((char *)&s[ft_strlen(s)]);
+	while (s[i])
+	{
+		if (s[i] == (char) c)
+			return ((char *)&s[i]);
+		i++;
+	}
+//	printf("end ft_strchr\n");
+	return (0);
+}

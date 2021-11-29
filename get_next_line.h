@@ -6,11 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:28:25 by 0xNino            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/11/24 15:06:39 by 0xNino           ###   ########.fr       */
-=======
-/*   Updated: 2021/11/25 16:37:33 by 0xNino           ###   ########.fr       */
->>>>>>> 48a030130ebbce6405bf9859ead9fde56b8c5ff8
+/*   Updated: 2021/11/29 19:50:43 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +18,23 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdarg.h>
+# include <sys/types.h> 
+# include <sys/stat.h> 
+# include <fcntl.h>
 
-<<<<<<< HEAD
-=======
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1000
 # endif
 
->>>>>>> 48a030130ebbce6405bf9859ead9fde56b8c5ff8
+char	*ft_read_reminder(int fd, char *reminder);
+char	*ft_get_line(char *reminder);
+char	*ft_new_reminder(char *reminder);
 char	*get_next_line(int fd);
+
 size_t	ft_strlen(const char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr(const char *s, int c);
 
 #endif
