@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:28:16 by 0xNino            #+#    #+#             */
-/*   Updated: 2021/11/29 19:58:27 by 0xNino           ###   ########.fr       */
+/*   Updated: 2021/11/30 03:12:39 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,10 @@ char	*ft_strjoin(char *reminder, char *buf)
 		s3 = (char *)malloc(sizeof(char) * dstsize);
 		if (!s3)
 			return (NULL);
-//		printf("test\n");
 		ft_strlcpy(s3, reminder, dstsize);
 		ft_strlcat(s3, buf, dstsize);
 	}
-//	printf("test2\n");
+	free(reminder);
 	return (s3);
 }
 
@@ -95,7 +94,6 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-//	printf("start ft_strchr\n");
 	if (!s)
 		return (NULL);
 	if (!c)
@@ -106,6 +104,5 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i++;
 	}
-//	printf("end ft_strchr\n");
 	return (0);
 }

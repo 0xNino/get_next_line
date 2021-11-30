@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:28:21 by 0xNino            #+#    #+#             */
-/*   Updated: 2021/11/29 20:04:36 by 0xNino           ###   ########.fr       */
+/*   Updated: 2021/11/30 03:14:03 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ int	main(void)
 		return (1);
 	}
 	i = 0;
-	while (i < 2)
+	while (i < 3)
 	{
 		line = get_next_line(fd);
 		printf("line = (%s)\n", line);

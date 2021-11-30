@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:28:25 by 0xNino            #+#    #+#             */
-/*   Updated: 2021/11/29 19:50:43 by 0xNino           ###   ########.fr       */
+/*   Updated: 2021/11/30 03:07:40 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 1
 # endif
 
 char	*ft_read_reminder(int fd, char *reminder);
