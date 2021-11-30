@@ -6,11 +6,29 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:28:21 by 0xNino            #+#    #+#             */
-/*   Updated: 2021/11/30 03:14:03 by 0xNino           ###   ########.fr       */
+/*   Updated: 2021/11/30 15:25:29 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*get_next_line(int fd)
+{
+	char		*line;
+	static char	*reminder;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	printf("reminder = (%s)\n", reminder);
+	reminder = ft_read_reminder(fd, reminder);
+	printf("reminder after read = (%s)\n", reminder);
+	if (!reminder)
+		return (NULL);
+	printf("test\n");
+	line = ft_get_line(reminder);
+	reminder = ft_new_reminder(reminder);
+	return (line);
+}
 
 char	*ft_read_reminder(int fd, char *reminder)
 {
@@ -20,23 +38,22 @@ char	*ft_read_reminder(int fd, char *reminder)
 	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buf)
 		return (NULL);
-//	printf("buf = (%s)\n", buf);
+	printf("buf start read = (%s)\n", buf);
 	read_return = 1;
-//	printf("reminder = (%s)\n", reminder);
+	printf("reminder start read = (%s)\n", reminder);
 	while (!ft_strchr(reminder, '\n') && read_return)
 	{
-//		printf("read_return = %i\n", read_return);
 		read_return = read(fd, buf, BUFFER_SIZE);
-//		printf("read_return = %i\n", read_return);
+		printf("read_return = %i\n", read_return);
 		if (read_return == -1)
 		{
 			free(buf);
 			return (NULL);
 		}
 		buf[read_return] = '\0';
-//		printf("buf before join = (%s)\n", buf);
+		printf("buf before join = (%s)\n", buf);
 		reminder = ft_strjoin(reminder, buf);
-//		printf("reminder after join = (%s)\n", reminder);
+		printf("reminder after join = (%s)\n", reminder);
 	}
 	free(buf);
 	return (reminder);
@@ -48,7 +65,8 @@ char	*ft_get_line(char *reminder)
 	char	*line;
 
 	i = 0;
-	if (!reminder)
+	printf("reminder start get_line = (%s)\n", reminder);
+	if (!reminder[i])
 		return (NULL);
 	while (reminder[i] != '\n')
 		i++;
@@ -98,35 +116,16 @@ char	*ft_new_reminder(char *reminder)
 	return (line);
 }
 
-char	*get_next_line(int fd)
-{
-	char		*line;
-	static char	*reminder;
-
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-//	printf("reminder = (%s)\n", reminder);
-	reminder = ft_read_reminder(fd, reminder);
-//	printf("reminder2 = (%s)\n", reminder);
-	if (!reminder)
-		return (NULL);
-	line = ft_get_line(reminder);
-	reminder = ft_new_reminder(reminder);
-	return (line);
-}
-/*
 int	main(void)
 {
 	int		i;
 	int		fd;
 	char	*line;
 
-	fd = open("./tests/test1.txt", O_RDONLY);
+	fd = open("./tests/41_with_nl", O_RDONLY);
+//	fd = 1000;
 	if (fd == -1)
-	{
-		printf("open() error");
-		return (1);
-	}
+		printf("open() error\n");
 	i = 0;
 	while (i < 3)
 	{
@@ -137,10 +136,9 @@ int	main(void)
 	free(line);
 	if (close(fd) == -1)
 	{
-		printf("close() error");
+		printf("close() error\n");
 		return (1);
 	}
-	printf("success");
+	printf("success\n");
 	return (0);
 }
-*/
