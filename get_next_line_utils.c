@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:28:16 by 0xNino            #+#    #+#             */
-/*   Updated: 2021/11/30 14:27:22 by 0xNino           ###   ########.fr       */
+/*   Updated: 2021/11/30 16:57:27 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ char	*ft_strjoin(char *reminder, char *buf)
 	size_t	dstsize;
 
 	s3 = NULL;
-//	printf("reminder in join = (%s)\n", reminder);
-//	printf("buf in join = (%s)\n", buf);
 	if (!reminder)
 	{
 		reminder = (char *)malloc(sizeof(char));
