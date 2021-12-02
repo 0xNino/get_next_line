@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:28:21 by 0xNino            #+#    #+#             */
-/*   Updated: 2021/11/30 17:33:43 by 0xNino           ###   ########.fr       */
+/*   Updated: 2021/12/02 12:13:15 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*ft_new_reminder(char *reminder)
 {
 	int		i;
 	int		j;
-	char	*line;
+	char	*new_reminder;
 
 	i = 0;
 	while (reminder[i] && reminder[i] != '\n')
@@ -93,18 +93,18 @@ char	*ft_new_reminder(char *reminder)
 		free(reminder);
 		return (NULL);
 	}
-	line = (char *)malloc((ft_strlen(reminder) - i + 1) * sizeof(char));
-	if (!line)
+	new_reminder = (char *)malloc((ft_strlen(reminder) - i + 1) * sizeof(char));
+	if (!new_reminder)
 		return (NULL);
 	i++;
 	j = 0;
 	while (reminder[i])
 	{
-		line[j++] = reminder[i++];
+		new_reminder[j++] = reminder[i++];
 	}
-	line[j] = '\0';
+	new_reminder[j] = '\0';
 	free(reminder);
-	return (line);
+	return (new_reminder);
 }
 /*
 int	main(void)
